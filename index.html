@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Contacts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <style>
+        .collection-header {
+            background-color: #26a69a;
+            color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-wrapper teal">
+            <a href="#" class="brand-logo center">My Contacts</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="input-field">
+            <input type="text" id="filterInput" placeholder="Search names...">
+           
+        </div>
+        <ul id="names" class="collection">
+            <li class="collection-header">
+                <h6>A</h6>
+            </li>
+            <li class="collection-item">
+                <a href="#">Annie</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Adam</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Amaya</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Anu</a>
+            </li>
+        
+            <li class="collection-header">
+                <h6>B</h6>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bunny</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Bhavan</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Buni</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Buvi</a>
+            </li>
+       
+            <li class="collection-header">
+                <h6>C</h6>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cidney</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Cira</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Chul</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Charish</a>
+            </li>
+            <li class="collection-header">
+                <h6>D</h6>
+            </li>
+            <li class="collection-item">
+                <a href="#">Daniel</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dora</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dhwani</a>
+            </li>
+            <li class="collection-item">
+                <a href="#">Dan</a>
+            </li>
+            
+        </ul>
+    </div>
+  
+
+    <script>
+       
+        //Get Input Element 
+        let filterInput = document.getElementById('filterInput');
+        //Add Event Listener
+        filterInput.addEventListener('keyup',filterNames);
+        function filterNames(){
+            //get value of input
+            let filterValue = document.getElementById('filterInput').value.toUpperCase();
+            //get names ul
+            let ul = document.getElementById('names');
+            //get lis from ul
+            let li = ul.querySelectorAll('li.collection-item');
+            //loop through collection-item li's
+            for(let i=0;i<li.length;i++){
+                let a = li[i].getElementsByTagName('a')[0];
+                //If matched
+                if(a.innerHTML.toUpperCase().indexOf(filterValue)>-1){
+                    li[i].style.display = '';
+                }
+                else{
+                    li[i].style.display = 'none';
+                }
+            }
+        }
+    </script>
+</body>
+</html>
